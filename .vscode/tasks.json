@@ -1,0 +1,13 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "打开底部面板 (Terminal)",
+      "type": "shell",
+      "command": "${command:workbench.action.togglePanel}",
+      "problemMatcher": [],
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "never", "panel": "dedicated" }
+    }
+  ]
+}

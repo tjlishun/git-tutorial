@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>待办清单 · TODO</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== 头部 ===== -->
+  <header class="header">
+    <div class="brand">
+      <span class="logo">✓</span>
+      <div>
+        <h1>待办清单</h1>
+        <p class="subtitle">今天也要把事情做完</p>
+      </div>
+    </div>
+    <div class="stats" id="stats">
+      <div class="stat">
+        <b id="stat-total">0</b>
+        <span>全部</span>
+      </div>
+      <div class="stat stat-active">
+        <b id="stat-active">0</b>
+        <span>进行中</span>
+      </div>
+      <div class="stat stat-done">
+        <b id="stat-done">0</b>
+        <span>已完成</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== 输入区 ===== -->
+  <section class="composer">
+    <input
+      type="text"
+      id="input"
+      class="input"
+      placeholder="有什么要做的事？回车添加..."
+      autocomplete="off"
+      maxlength="200"
+    />
+    <select id="priority" class="priority" title="优先级">
+      <option value="low">低</option>
+      <option value="mid" selected>中</option>
+      <option value="high">高</option>
+    </select>
+    <button id="add-btn" class="btn-add" title="添加任务 (Enter)">添加</button>
+  </section>
+
+  <!-- ===== 筛选 ===== -->
+  <nav class="filters">
+    <button class="filter active" data-filter="all">全部 <span id="c-all">0</span></button>
+    <button class="filter" data-filter="active">进行中 <span id="c-active">0</span></button>
+    <button class="filter" data-filter="done">已完成 <span id="c-done">0</span></button>
+    <div class="filter-right">
+      <button class="btn-clear" id="clear-done">清除已完成</button>
+      <button class="btn-clear danger" id="clear-all">清空全部</button>
+    </div>
+  </nav>
+
+  <!-- ===== 列表 ===== -->
+  <main class="list-wrap">
+    <ul class="list" id="list"></ul>
+
+    <div class="empty" id="empty">
+      <div class="empty-icon">🎉</div>
+      <h3>还没有任务</h3>
+      <p>在上面的输入框添加第一条待办吧</p>
+    </div>
+  </main>
+
+  <!-- ===== 底部进度 ===== -->
+  <footer class="footer">
+    <div class="progress-info">
+      <span id="progress-text">完成 0%</span>
+      <span id="progress-count">0 / 0</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ===== 提示条 ===== -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
